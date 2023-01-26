@@ -26,8 +26,7 @@ time, mark, audio, video {
 } */
 
 * {
-  border: 2px;
-  border-color: red;
+  border: 1px solid red;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -55,6 +54,10 @@ table {
 }
 
 /* rest of the CSS */
+body {
+  background-color:#011627;
+  color:#d6deeb;
+}
 
 header main nav footer {
   display: flex;
@@ -66,5 +69,10 @@ header main nav footer {
 nav {
   flex-direction: column;
   align-items: right;
+  width: max(15vw, 150px);
+  max-width: 300px;
+}
 
+header {
+  height: 5rem;
 }
