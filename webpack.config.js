@@ -14,6 +14,37 @@ module.exports = {
     clean: true,
   },
 
+  // source mapping
+  devtool: "inline-source-map",
+
+  // server for development
+  devServer: {
+    static: ["dist"],
+    hot: true,
+    open: {
+
+      app: {
+        name: "google-chrome",
+        arguments: ['--incognito', '--new-window'],
+      },
+    },
+  },
+
+  optimization: {
+    runtimeChunk: "single",
+  },
+
+  // plugins
+  plugins: [
+    new htmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/template.html"),
+      title: "Scoozy's Todoozies",
+      filename: "index.html",
+      inject: false,
+    }),
+  ],
+
+  // loaders
   module: {
     rules: [
       {
@@ -30,14 +61,4 @@ module.exports = {
       },
     ],
   },
-
-  // plugins
-  plugins: [
-    new htmlWebpackPlugin({
-      template: path.resolve(__dirname, "src/template.html"),
-      title: "Scoozy's Todoozies",
-      filename: "index.html",
-      inject: false,
-    }),
-  ],
 };
