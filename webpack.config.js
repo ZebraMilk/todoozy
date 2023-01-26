@@ -19,10 +19,10 @@ module.exports = {
 
   // server for development
   devServer: {
-    static: ["dist"],
+    
+    static: path.resolve(__dirname, "dist"),
     hot: true,
     open: {
-
       app: {
         name: "google-chrome",
         arguments: ['--incognito', '--new-window'],
@@ -40,7 +40,7 @@ module.exports = {
       template: path.resolve(__dirname, "src/template.html"),
       title: "Scoozy's Todoozies",
       filename: "index.html",
-      inject: false,
+      
     }),
   ],
 
