@@ -1,9 +1,21 @@
 import { formatDistanceToNow } from "date-fns";
+import library from "./library.js";
 
 // logic for making todo Objs here
 
 // try factory function, specifically, to avoid class sugar or inheritance
+function Todo({todo}) {
+  let title = todo.title;
+  let description = todo.description;
+  let project = todo.project;
 
+
+  // return the object with methods of manipulating data
+  // freeze the returned object
+  return {
+
+  }
+}
 // sample todo object for development
 const sampleTodoozy = {
   title: "Make the bed",
@@ -19,5 +31,7 @@ const sampleTodoozy = {
   tags: { tag1: "Sample", tag2: "tags", tag3: "for-review" },
   id: "unique hash ID",
 };
+
+library.addTodo(sampleTodoozy);
 
 export default sampleTodoozy;

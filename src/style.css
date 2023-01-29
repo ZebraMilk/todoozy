@@ -76,3 +76,14 @@ nav {
 header {
   height: 5rem;
 }
+
+button {
+  background-color: gray;
+  color: greenyellow;
+}
+
+#app-content {
+  display: grid;
+  grid: 
+}
+
