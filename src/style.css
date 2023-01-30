@@ -95,6 +95,7 @@ button {
 .app-content {
   display: grid;
   grid-template-columns: min-content 1fr;
+  max-height: 100%;
 
 }
 

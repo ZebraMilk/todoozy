@@ -23,7 +23,7 @@ function todoLibrary() {
   }
 
   function displayTodoListDefault() {
-    todoList.forEach(createTodoCard);
+    todoList.forEach((todoozy) => createTodoCard(todoozy));
   }
 
   return Object.freeze({

@@ -47,39 +47,46 @@ function loadUI() {
   console.log("UI Changed");
 }
 
-function createTodoCard(todoozy) {
-  console.log(todoozy);
+function clearDisplay() {
+  // Kinda gross, removes the last element child until it gets to the form.
+  // need to find a better way of doing this. Maybe wrapping the todos in a container like a div, and clearing that container
+  while (todoozyDisplay.lastElementChild) {
+    todoozyDisplay.lastElementChild.remove();
+  }
+  return;
 }
 
-// uncomment after testing the dependency!
-// function createTodoCard(todoozy) {
-//   const todoCard = document.createElement("div");
-//   const title = document.createElement("h1");
-//   const description = document.createElement("details");
-//   const dueDate = document.createElement("div");
-//   const project = document.createElement("h4");
+function createTodoCard(todoozy) {
+  const todoCard = document.createElement("div");
+  const title = document.createElement("h1");
+  const description = document.createElement("details");
+  const dueDate = document.createElement("div");
+  const project = document.createElement("h4");
 
-//   todoCard.classList.add("todoozy");
-//   todoCard.id = `${todoozy.id}`;
-//   title.classList.add("todoozy-title");
-//   description.classList.add("todoozy-description");
-//   dueDate.classList.add("todoozy-due-date");
-//   project.classList.add("todoozy-project");
+  todoCard.classList.add("todoozy");
+  todoCard.id = `${todoozy.id}`;
+  title.classList.add("todoozy-title");
+  description.classList.add("todoozy-description");
+  dueDate.classList.add("todoozy-due-date");
+  project.classList.add("todoozy-project");
 
-//   const todoozyArray = [...todoozy];
-//   todoozyArray.forEach((item) => {
-//     for (let property in item) {
-//       `${item}`.innerText = `${property.value}`;
-//       console.log(property);
-//     }
-//   });
-//   todoCard.append(title, description, dueDate, project);
-//   todoozyDisplay.appendChild(todoCard);
-// }
+  // iterate over each property in the todoozy
+  title.innerText = `${todoozy.title}`;
+  description.innerText = `${todoozy.description}`;
+  dueDate.innerText = `${todoozy.dueDate}`;
+  project.innerText = `${todoozy.project}`;
+
+  todoCard.append(title, description, dueDate, project);
+  todoozyDisplay.appendChild(todoCard);
+}
 
 // update the display with our todos
 function updateDisplayDefault(e) {
   e.preventDefault();
+  // make it display from scratch even if no display, not just update
+  if (todoozyDisplay.hasChildNodes()) {
+    clearDisplay();
+  }
   library.displayTodoListDefault(); // just to test for now
 
   // This is for iterating over the copy of the todoList that's returned and make cards of them
