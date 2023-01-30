@@ -26,6 +26,9 @@ const sampleTodoozy = {
   description: "long, lovely description of the item. Maybe a poem.",
   project: "associated project",
   dueDate: new Date(2023, 1, 26),
+  // don't rely on a boolean toggle? how do I add this?
+  // could check for if the item contains a property called "done"?
+  isDone: false,
   howMuchTime: function () {
     return formatDistanceToNow(this.dueDate);
   },
