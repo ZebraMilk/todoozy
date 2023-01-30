@@ -14,14 +14,18 @@ function todoLibrary() {
     console.log("todo removed from library");
   }
 
-  function displayLibrary() {
+  function getLibrary() {
     console.table(todoList);
+    const frozenTodoList = [...todoList];
+    return Object.freeze(frozenTodoList); // the freeze here is making this array non extensible?
+    // maybe try to return a copy of it? But then if the user goes to modify something on the UI, how do I reach deep into the todoList to change that object?
+
   }
 
   return Object.freeze({
     addTodo,
     removeTodo,
-    displayLibrary,
+    getLibrary,
   });
 }
 
