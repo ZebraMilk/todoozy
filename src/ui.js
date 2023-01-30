@@ -1,6 +1,6 @@
 // do DOM stuff here
 // imports?
-import { todoLibrary } from "./library.js";
+import { library } from "./library.js";
 // grab the form fields
 const todoForm = document.querySelector(".add-todo-fields");
 
@@ -24,8 +24,8 @@ function captureFields(e) {
 }
 // function to add todo to library
 function addToLibrary(newTodoozy) {
-  todoLibrary.addTodo(newTodoozy);
-  todoLibrary.displayLibrary();
+  library.addTodo(newTodoozy);
+  library.displayLibrary();
 }
 
 // button to add a todo

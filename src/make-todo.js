@@ -1,5 +1,5 @@
 import { formatDistanceToNow } from "date-fns";
-import { todoLibrary } from "./library";
+import { library } from "./library";
 
 // logic for making todo Objs here
 
@@ -35,5 +35,6 @@ const sampleTodoozy = {
   tags: { tag1: "Sample", tag2: "tags", tag3: "for-review" },
 };
 
+library.addTodo(sampleTodoozy);
 
 export { sampleTodoozy, Todo };

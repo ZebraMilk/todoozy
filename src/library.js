@@ -25,6 +25,8 @@ function todoLibrary() {
   });
 }
 
-export { todoLibrary };
+const library = todoLibrary();
+
+export { library };
 
 console.log("library loaded");
