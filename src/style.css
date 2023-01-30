@@ -27,6 +27,10 @@ time, mark, audio, video {
 
 * {
   border: 1px solid red;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -57,6 +61,7 @@ table {
 body {
   background-color:#011627;
   color:#d6deeb;
+  height: 100%;
 }
 
 header main nav footer {
@@ -77,13 +82,25 @@ header {
   height: 5rem;
 }
 
+footer {
+  position: sticky;
+  align-self: flex-end;
+}
+
 button {
   background-color: gray;
   color: greenyellow;
 }
 
-#app-content {
+.app-content {
   display: grid;
-  grid: 
+  grid-template-columns: min-content 1fr;
+
 }
 
+
+.add-todo-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}

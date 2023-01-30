@@ -4,6 +4,12 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   mode: "development",
 
+  watchOptions: {
+    ignored: '/node_modules/',
+    aggregateTimeout: 1000,
+    poll: 1000,
+  },
+
   entry: {
     main: path.resolve(__dirname, "src/index.js"),
   },

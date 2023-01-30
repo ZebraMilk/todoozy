@@ -1,30 +1,30 @@
+// here will be one massive object or array that contains all the todos
 
-
-// here will be one massive object that contains all the todos
 
 function todoLibrary() {
   let todoList = [];
-  
+
   function addTodo(todo) {
     todoList.push(todo);
     console.log("todo added to library");
-  };
-  
-  function removeTodo() {
-    
+  }
+
+  function removeTodo(id) {
+    todoList.splice(id, 1);
     console.log("todo removed from library");
+  }
+
+  function displayLibrary() {
+    console.table(todoList);
   }
 
   return Object.freeze({
     addTodo,
-    removeTodo
+    removeTodo,
+    displayLibrary,
   });
-
 }
 
-const library = todoLibrary();
-export default library;
+export { todoLibrary };
 
-
-
-console.log("loaded from library");
+console.log("library loaded");
