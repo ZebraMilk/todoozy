@@ -1,5 +1,5 @@
 // here will be one massive object or array that contains all the todos
-
+import { createTodoCard } from "./ui";
 
 function todoLibrary() {
   let todoList = [];
@@ -22,10 +22,15 @@ function todoLibrary() {
 
   }
 
+  function displayTodoListDefault() {
+    todoList.forEach(createTodoCard);
+  }
+
   return Object.freeze({
     addTodo,
     removeTodo,
     getLibrary,
+    displayTodoListDefault
   });
 }
 

@@ -48,34 +48,39 @@ function loadUI() {
 }
 
 function createTodoCard(todoozy) {
-  const todoCard = document.createElement("div");
-  const title = document.createElement("h1");
-  const description = document.createElement("details");
-  const dueDate = document.createElement("div");
-  const project = document.createElement("h4");
-
-  todoCard.classList.add("todoozy");
-  todoCard.id = `${todoozy.id}`;
-  title.classList.add("todoozy-title");
-  description.classList.add("todoozy-description");
-  dueDate.classList.add("todoozy-due-date");
-  project.classList.add("todoozy-project");
-
-  const todoozyArray = [...todoozy];
-  todoozyArray.forEach((item) => {
-    for (let property in item) {
-      `${item}`.innerText = `${property.value}`;
-      console.log(property);
-    }
-  });
-  todoCard.append(title, description, dueDate, project);
-  todoozyDisplay.appendChild(todoCard);
+  console.log(todoozy);
 }
+
+// uncomment after testing the dependency!
+// function createTodoCard(todoozy) {
+//   const todoCard = document.createElement("div");
+//   const title = document.createElement("h1");
+//   const description = document.createElement("details");
+//   const dueDate = document.createElement("div");
+//   const project = document.createElement("h4");
+
+//   todoCard.classList.add("todoozy");
+//   todoCard.id = `${todoozy.id}`;
+//   title.classList.add("todoozy-title");
+//   description.classList.add("todoozy-description");
+//   dueDate.classList.add("todoozy-due-date");
+//   project.classList.add("todoozy-project");
+
+//   const todoozyArray = [...todoozy];
+//   todoozyArray.forEach((item) => {
+//     for (let property in item) {
+//       `${item}`.innerText = `${property.value}`;
+//       console.log(property);
+//     }
+//   });
+//   todoCard.append(title, description, dueDate, project);
+//   todoozyDisplay.appendChild(todoCard);
+// }
 
 // update the display with our todos
 function updateDisplayDefault(e) {
   e.preventDefault();
-  console.table(library.getLibrary()); // just to test for now
+  library.displayTodoListDefault(); // just to test for now
 
   // This is for iterating over the copy of the todoList that's returned and make cards of them
   // library.getLibrary().forEach((todoozy) =>
@@ -90,4 +95,4 @@ displayButton.classList.add("display-button");
 displayButton.innerText = "Display Todos";
 todoForm.appendChild(displayButton);
 
-export { loadUI };
+export { loadUI, createTodoCard };
