@@ -38,6 +38,7 @@ function loadUI() {
   addBtn.addEventListener("click", (e) => {
     const todoozy = captureFields(e);
     addToLibrary(todoozy);
+    updateDisplayDefault(e);
   });
 
   addBtn.classList.add("make-todo-button");
