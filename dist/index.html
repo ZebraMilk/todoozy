@@ -9,69 +9,72 @@
   <body>
     <header>
       <!-- logo and such -->
+      <h1>Todoozies</h1>
     </header>
     <main class="app-content">
       <nav class="left-nav">
         <!-- navigation menu for todo items -->
         <li>Today</li>
-        <li>Heap</li>
+        <li>Pile</li>
         <li>Projects</li>
-        <li>Categories</li>
         <li>Calendar</li>
       </nav>
       <div class="display" id="display">
         <!-- display the todo items as they are clicked -->
-        <form class="add-todo-fields">
-          <div class="todo-input">
-            <label for="title" class="field-label">Title</label>
-            <input
-              type="text"
-              class="field-input"
-              id="title"
-              name="todoozy"
-              required
-            />
-          </div>
-          <div class="todo-input">
-            <label for="description" class="field-label">Description</label>
-            <input
-              type="text"
-              class="field-input"
-              id="description"
-              name="todoozy"
-            />
-          </div>
-          <div class="todo-input">
-            <label for="due-date" class="field-label">Due Date</label>
-            <input
-              type="date"
-              class="field-input"
-              id="due-date"
-              name="todoozy"
-            />
-          </div>
-          <div class="todo-input">
-            <label for="project" class="field-label">Project</label>
-            <input
-              type="text"
-              class="field-input"
-              id="project"
-              name="todoozy"
-            />
-          </div>
-          <div class="todo-input">
-            <label for="completed" class="field-label">Completed</label>
-            <input
-              type="checkbox"
-              class="field-input"
-              id="completed"
-              name="todoozy"
-            />
-          </div>
-        </form>
-        <div class="todoozy-display" id="todoozy-display">
-          
+        <button class="toggle-make-todo">Make Todoozy</button>
+        <button class="display-todos">Display Todos</button>
+        <div class="make-todo-display">
+          <form class="add-todo-fields hide">
+            <div class="todo-input">
+              <label for="title" class="field-label">Title</label>
+              <input
+                type="text"
+                class="field-input"
+                id="title"
+                name="todoozy"
+                required
+              />
+            </div>
+            <div class="todo-input">
+              <label for="description" class="field-label">Description</label>
+              <input
+                type="text"
+                class="field-input"
+                id="description"
+                name="todoozy"
+              />
+            </div>
+            <div class="todo-input due-date">
+              <label for="due-date" class="field-label">Due Date</label>
+              <input
+                type="date"
+                class="field-input"
+                id="due-date"
+                name="todoozy"
+              />
+            </div>
+            <div class="todo-input">
+              <label for="project" class="field-label">Project</label>
+              <input
+                type="text"
+                class="field-input"
+                id="project"
+                name="todoozy"
+              />
+            </div>
+            <div class="todo-input">
+              <label for="completed" class="field-label">Completed</label>
+              <input
+                type="checkbox"
+                class="field-input"
+                id="completed"
+                name="todoozy"
+              />
+              <button class="add-todo-button">Add Todoozy</button>
+            </div>
+          </form>
         </div>
+        <div class="todoozy-display" id="todoozy-display"></div>
       </div>
     </main>
     <footer>

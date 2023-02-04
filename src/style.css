@@ -1,22 +1,90 @@
 /* || CSS RESET */
- /* http://meyerweb.com/eric/tools/css/reset/ 
- v2.0 | 20110126
- License: none (public domain)
+/* http://meyerweb.com/eric/tools/css/reset/ 
+  v2.0 | 20110126
+  License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -26,22 +94,35 @@ time, mark, audio, video {
   border: 1px solid red;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 body {
   line-height: 1;
 }
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 table {
@@ -49,86 +130,146 @@ table {
   border-spacing: 0;
 }
 
-/* || GENERAL STYLES */
-html, body {
+/* || global styles  */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 body {
-  background-color:#011627;
-  color:#d6deeb;
+  background-color: #011627;
+  color: #d6deeb;
   height: 100vh;
-  font: "ComicNeue";
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
-/* || UTILITIES */
 
-/* || TYPOGRAPHY */
-
-/* || Fonts */
+/* || typography */
+/* || fonts */
 @font-face {
-    font-family: "ComicNeue";
-    src: url('./assets/fonts/ComicNeueAngular-Regular.woff') format('woff'),
-        url('./assets/fonts/ComicNeueAngular-Regular.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
+  font-family: "ComicNeue";
+  src: url("/src/assets/fonts/ComicNeueAngular-Regular.woff") format("woff"),
+    url("/src/assets/fonts/ComicNeueAngular-Regular.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
 }
-/* || HEADER AND NAV */
-header, nav, footer {
+/* || font styles */
+:root {
+  font-family: "ComicNeue";
+  font-size: 24px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+}
+
+/* || variables */
+
+/* || layout */
+
+header,
+footer {
   display: flex;
-  padding: 10px;
-  background-color: #011627;
-  color: #d6deeb;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+main {
+  display: flex;
+  flex-grow: 1;
 }
 
 nav {
+  display: flex;
   flex-direction: column;
-  align-items: right;
+  align-items: flex-end;
   width: max(15vw, 150px);
   max-width: 300px;
+  padding: 1em 0 0 1em;
+}
+
+/* || components */
+/* || header and footer */
+
+header,
+footer {
+  padding: 10px;
+  background-color: #011627;
+  color: #d6deeb;
 }
 
 header {
   height: 5rem;
 }
 
-/* || CONTENT */
-
-main {
-  display: flex;
-  background-color: #011627;
-  color: #d6deeb;
+footer {
+  font-size: 2rem;
 }
-
-
-
-
 
 header h1 {
   color: #d6deeb;
 }
+/* || navigation */
 
-header, footer {
-  flex-grow: 0;
-  flex-shrink: 0;
+nav {
+  font-size: 0.8rem;
 }
 
-main {
-  flex-grow: 1;
+nav > li {
+  min-height: 1.75rem;
+  width: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 1em;
+  margin: 0.25em 0;
+  border: 1px solid white;
+  border-bottom-left-radius: 1em;
+  border-top-left-radius: 1em;
+  border-right: none;
+  transition: all 2s;
 }
 
+nav > li:hover {
+  width: 100%;
+}
+
+nav > li:active {
+  width: 100%;
+}
+
+/* || buttons */
 
 button {
   background-color: gray;
   color: greenyellow;
 }
 
+/* || content */
+
+main {
+  background-color: #011627;
+  color: #d6deeb;
+}
+
 .app-content {
   display: grid;
   grid-template-columns: min-content 1fr;
+}
 
+.make-todo-display {
+  display: flex;
+  flex-direction: column;
+}
+
+/* || inputs */
+
+.add-todo-fields .hide {
+  transition: all 1s ease;
 }
 
 .add-todo-fields {
@@ -138,7 +279,7 @@ button {
 }
 
 .field-input {
-  transition: all .2s ease;
+  transition: all 0.2s ease;
   padding: 3px 1em;
   margin: 0 1em;
   border-radius: 2em;
@@ -164,10 +305,8 @@ input:focus {
   width: auto;
 }
 
+/* || utilities */
+
 .hide {
   display: none;
-}
-
-.show {
-  display: block;
 }

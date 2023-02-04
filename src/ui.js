@@ -19,7 +19,7 @@ function captureFields(e) {
     description: todoDescription.value,
     dueDate: new Date(todoDueDate.value.split("-").join(", ")),
     project: todoProject.value,
-    completed: todoCompleted.value
+    completed: todoCompleted.value,
   };
   console.table(newTodo);
   todoForm.reset();
@@ -33,9 +33,8 @@ function addToLibrary(newTodoozy) {
 
 // button to add a todo
 function loadUI() {
-
   // const todoDisplay = document.querySelector(".todoozy-display");
-  const addBtn = document.createElement("button");
+  const addBtn = document.querySelector(".add-todo-button");
 
   addBtn.addEventListener("click", (e) => {
     const todoozy = captureFields(e);
@@ -43,9 +42,9 @@ function loadUI() {
     updateDisplayDefault(e);
   });
 
-  addBtn.classList.add("make-todo-button");
-  addBtn.innerText = "Make Todoozy";
-  todoForm.appendChild(addBtn);
+  // addBtn.classList.add("make-todo-button");
+  // addBtn.innerText = "Make Todoozy";
+  // todoForm.appendChild(addBtn);
 
   console.log("UI Changed");
 }
@@ -98,22 +97,22 @@ function updateDisplayDefault(e) {
   // );
 }
 // TODO: make the "make todo" button display or hide the todofields
-const makeTodoButton = document.querySelector(".make-todo-button");
+const makeTodoButton = document.querySelector(".toggle-make-todo");
 
-function toggleTodoFields() {
-  if (todoForm.classList.contains("show")) {
-  todoForm.classList.add("hide").remove("show")
-  } else {todoForm.classList.add("show").remove("hide")}
+function toggleTodoFields(e) {
+  e.preventDefault();
+  if (todoForm.classList.contains("hide")) {
+    todoForm.classList.remove("hide");
+  } else {
+    todoForm.classList.add("hide");
+  }
 }
 // grab the dom stuff and add a listner
-makeTodoButton.addEventListener("click", () => toggleTodoFields())
-
+makeTodoButton.addEventListener("click", (e) => toggleTodoFields(e));
 
 // make a test button to display the library
-const displayButton = document.createElement("button");
+const displayButton = document.querySelector(".display-todos");
 displayButton.addEventListener("click", (e) => updateDisplayDefault(e));
-displayButton.classList.add("display-button");
-displayButton.innerText = "Display Todos";
-todoForm.appendChild(displayButton);
+
 
 export { loadUI, createTodoCard };
