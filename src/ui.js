@@ -33,7 +33,7 @@ function addToLibrary(newTodoozy) {
 
 // button to add a todo
 function loadUI() {
-  const todoInput = document.querySelector(".add-todo-fields");
+
   // const todoDisplay = document.querySelector(".todoozy-display");
   const addBtn = document.createElement("button");
 
@@ -45,7 +45,7 @@ function loadUI() {
 
   addBtn.classList.add("make-todo-button");
   addBtn.innerText = "Make Todoozy";
-  todoInput.appendChild(addBtn);
+  todoForm.appendChild(addBtn);
 
   console.log("UI Changed");
 }
@@ -97,6 +97,17 @@ function updateDisplayDefault(e) {
   //   createTodoCard(todoozy)
   // );
 }
+// TODO: make the "make todo" button display or hide the todofields
+const makeTodoButton = document.querySelector(".make-todo-button");
+
+function toggleTodoFields() {
+  if (todoForm.classList.contains("show")) {
+  todoForm.classList.add("hide").remove("show")
+  } else {todoForm.classList.add("show").remove("hide")}
+}
+// grab the dom stuff and add a listner
+makeTodoButton.addEventListener("click", () => toggleTodoFields())
+
 
 // make a test button to display the library
 const displayButton = document.createElement("button");

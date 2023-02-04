@@ -1,10 +1,10 @@
-/* CSS Reset
-http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+/* || CSS RESET */
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+ v2.0 | 20110126
+ License: none (public domain)
 */
 
-/* html, body, div, span, applet, object, iframe,
+html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -17,54 +17,66 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-} */
-
-* {
-  border: 1px solid red;
   margin: 0;
   padding: 0;
+  border: 0;
   font-size: 100%;
   font: inherit;
+  vertical-align: baseline;
+  border: 1px solid red;
 }
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+  content: '';
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-/* rest of the CSS */
+/* || GENERAL STYLES */
+html, body {
+  box-sizing: border-box;
+}
+
 body {
   background-color:#011627;
   color:#d6deeb;
-  height: 100%;
+  height: 100vh;
+  font: "ComicNeue";
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
+/* || UTILITIES */
 
-header main nav footer {
+/* || TYPOGRAPHY */
+
+/* || Fonts */
+@font-face {
+    font-family: "ComicNeue";
+    src: url('./assets/fonts/ComicNeueAngular-Regular.woff') format('woff'),
+        url('./assets/fonts/ComicNeueAngular-Regular.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+/* || HEADER AND NAV */
+header, nav, footer {
   display: flex;
   padding: 10px;
   background-color: #011627;
@@ -82,10 +94,31 @@ header {
   height: 5rem;
 }
 
-footer {
-  position: sticky;
-  align-self: flex-end;
+/* || CONTENT */
+
+main {
+  display: flex;
+  background-color: #011627;
+  color: #d6deeb;
 }
+
+
+
+
+
+header h1 {
+  color: #d6deeb;
+}
+
+header, footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+main {
+  flex-grow: 1;
+}
+
 
 button {
   background-color: gray;
@@ -95,13 +128,46 @@ button {
 .app-content {
   display: grid;
   grid-template-columns: min-content 1fr;
-  max-height: 100%;
 
 }
-
 
 .add-todo-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+}
+
+.field-input {
+  transition: all .2s ease;
+  padding: 3px 1em;
+  margin: 0 1em;
+  border-radius: 2em;
+  width: 75%;
+}
+
+input:focus {
+  border: 5px solid green;
+}
+
+.todo-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2.5em;
+}
+
+.todo-input.due-date {
+  justify-content: center;
+}
+
+#due-date {
+  width: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
