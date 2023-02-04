@@ -9,6 +9,7 @@ const todoTitle = document.getElementById("title");
 const todoDescription = document.getElementById("description");
 const todoDueDate = document.getElementById("due-date");
 const todoProject = document.getElementById("project");
+const todoCompleted = document.getElementById("completed");
 // function to store fields into a new todo object
 function captureFields(e) {
   e.preventDefault();
@@ -18,6 +19,7 @@ function captureFields(e) {
     description: todoDescription.value,
     dueDate: new Date(todoDueDate.value.split("-").join(", ")),
     project: todoProject.value,
+    completed: todoCompleted.value
   };
   console.table(newTodo);
   todoForm.reset();
