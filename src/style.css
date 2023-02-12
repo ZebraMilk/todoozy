@@ -91,7 +91,7 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -137,14 +137,9 @@ table {
   box-sizing: border-box;
 }
 
-body {
-  background-color: #011627;
-  color: #d6deeb;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+input {
+  outline: none;
 }
-
 /* || typography */
 /* || fonts */
 @font-face {
@@ -160,16 +155,44 @@ body {
   font-size: 24px;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-weight: bold;
-}
+
 
 /* || variables */
 
+
+:root {
+  /* || color variables */
+  --dark: hsl(207, 95%, 8%);
+  --light: hsl(217, 34%, 88%);
+  --dark-accent: hsl(207, 95%, 17%);
+  --dark-selected: hsl(206, 93%, 12%);
+  --red: hsl(1, 83%, 63%);
+  --green: hsl(145, 73%, 49%);
+  --yellow: hsl(84, 62%, 63%);
+  --blue: hsl(221, 100%, 75%);
+  --orange: hsl(14, 90%, 70%);
+  --magenta: hsl(276, 68%, 75%);
+  --cyan: hsl(169, 72%, 45%);
+  --white: hsl(0, 0%, 100%);
+  --bright-black: hsl(0, 1%, 34%);
+
+  /* || font variables */
+  --h1-font-size: 3rem;
+  --h2-font-size: 2rem;
+  --h3-font-size: 1.5rem;
+  --nav-font-size: .8rem;
+  --input-font-size: .7rem;
+  --todo-title-font-size: .9rem;
+  --todo-description-font-size: .7rem;
+}
+
+
+
 /* || layout */
+
+body {
+  height: 100vh;
+}
 
 header,
 footer {
@@ -180,7 +203,7 @@ footer {
 
 main {
   display: flex;
-  flex-grow: 1;
+  height: calc(100vh - 5rem);
 }
 
 nav {
@@ -188,35 +211,43 @@ nav {
   flex-direction: column;
   align-items: flex-end;
   width: max(15vw, 150px);
-  max-width: 300px;
-  padding: 1em 0 0 1em;
+  padding: 2.5em 0 0 1em;
 }
 
 /* || components */
-/* || header and footer */
 
-header,
-footer {
-  padding: 10px;
-  background-color: #011627;
-  color: #d6deeb;
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
 }
+/* || header and footer */
 
 header {
   height: 5rem;
+  padding: 10px;
+  background-color: var(--dark);
+  color: var(--light);
 }
 
-footer {
+.nav-footer {
   font-size: 2rem;
 }
 
 header h1 {
-  color: #d6deeb;
+  margin: auto;
+  color: var(--light);
+  font-size: var(--h1-font-size);
 }
 /* || navigation */
 
 nav {
-  font-size: 0.8rem;
+  font-size: var(--nav-font-size);
+}
+
+.nav-footer {
+  margin: auto auto 0 auto;
+  color: var(--light);
 }
 
 nav > li {
@@ -227,11 +258,11 @@ nav > li {
   align-items: center;
   padding: 0 1em;
   margin: 0.25em 0;
-  border: 1px solid white;
-  border-bottom-left-radius: 1em;
-  border-top-left-radius: 1em;
+  border: 1px solid var(--light);
+  border-bottom-left-radius: 2em;
+  border-top-left-radius: 2em;
   border-right: none;
-  transition: all 2s;
+  font-weight: bold;
 }
 
 nav > li:hover {
@@ -245,15 +276,36 @@ nav > li:active {
 /* || buttons */
 
 button {
-  background-color: gray;
-  color: greenyellow;
+
+  background-color: var(--dark-selected);
+  color: var(--light);
+  border: 2px solid var(--bright-black);
+  border-radius: 2em;
+  padding: .25em .7em;
+  transition: all .15s ease;
+}
+
+button:hover {
+  padding: .25em 1em;
+  background-color: var(--dark-accent);
+}
+
+button:focus {
+  box-shadow: inset .1em .1em var(--bright-black);
 }
 
 /* || content */
 
 main {
-  background-color: #011627;
-  color: #d6deeb;
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+.display {
+  border-top: 2px solid var(--light);
+  border-left: 2px solid var(--light);
+  border-top-left-radius: 2em;
+  padding: 1em; 
 }
 
 .app-content {
@@ -261,21 +313,40 @@ main {
   grid-template-columns: min-content 1fr;
 }
 
-.make-todo-display {
-  display: flex;
-  flex-direction: column;
+
+/* || todo cards */
+
+.todo-card {
+  display: grid;
+  grid-template-columns: 20% 1fr 20% ;
+  text-align: center;
+  gap: .5rem;
+  background-color: var(--dark-selected);
+  border: 1px solid var(--bright-black);
+  border-radius: .25rem;
+  margin: .25rem 0;
+  padding: .5em;
+  
 }
 
 /* || inputs */
 
-.add-todo-fields .hide {
-  transition: all 1s ease;
+.make-todo-display {
+  background-color: var(--dark-accent);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--light);
+  border-radius: .25rem;
+  margin-top: 1rem;
+  padding: .5rem;
 }
 
 .add-todo-fields {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  gap: .5rem;
+  /* transition: all 1s ease; */
 }
 
 .field-input {
@@ -287,7 +358,7 @@ main {
 }
 
 input:focus {
-  border: 5px solid green;
+  outline: solid 3px var(--magenta);
 }
 
 .todo-input {
@@ -309,4 +380,10 @@ input:focus {
 
 .hide {
   display: none;
+  position: static;
+}
+
+.pop-out {
+  position: absolute;
+
 }

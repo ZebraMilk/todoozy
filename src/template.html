@@ -18,13 +18,17 @@
         <li>Pile</li>
         <li>Projects</li>
         <li>Calendar</li>
+        <a class="nav-footer" href="https://github.com/ZebraMilk">Scooz</a>
       </nav>
       <div class="display" id="display">
-        <!-- display the todo items as they are clicked -->
-        <button class="toggle-make-todo">Make Todoozy</button>
-        <button class="display-todos">Display Todos</button>
-        <div class="make-todo-display">
-          <form class="add-todo-fields hide">
+        <div class="display-options">
+          <!-- display the todo items as they are clicked -->
+          <button class="toggle-make-todo">Make Todoozy</button>
+          <button class="display-todos">Display Todos</button>
+          
+        </div>
+        <div class="make-todo-display hide">
+          <form class="add-todo-fields">
             <div class="todo-input">
               <label for="title" class="field-label">Title</label>
               <input
@@ -38,7 +42,7 @@
             <div class="todo-input">
               <label for="description" class="field-label">Description</label>
               <input
-                type="text"
+                type="textarea"
                 class="field-input"
                 id="description"
                 name="todoozy"
@@ -47,7 +51,7 @@
             <div class="todo-input due-date">
               <label for="due-date" class="field-label">Due Date</label>
               <input
-                type="date"
+                type="datetime-local"
                 class="field-input"
                 id="due-date"
                 name="todoozy"
@@ -70,6 +74,8 @@
                 id="completed"
                 name="todoozy"
               />
+            </div>
+            <div class="todo-input">
               <button class="add-todo-button">Add Todoozy</button>
             </div>
           </form>
@@ -77,8 +83,5 @@
         <div class="todoozy-display" id="todoozy-display"></div>
       </div>
     </main>
-    <footer>
-      <a href="https://github.com/ZebraMilk">Scooz</a>
-    </footer>
   </body>
 </html>

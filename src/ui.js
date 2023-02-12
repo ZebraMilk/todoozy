@@ -1,9 +1,15 @@
 // do DOM stuff here
 // imports?
 import { library } from "./library.js";
+import { todoInput } from "./dom.js";
 // grab the form fields
+const makeTodoDisplay = document.querySelector(".make-todo-display");
 const todoForm = document.querySelector(".add-todo-fields");
 const todoozyDisplay = document.getElementById("todoozy-display");
+
+const addBtn = document.querySelector(".add-todo-button");
+const makeTodoButton = document.querySelector(".toggle-make-todo");
+const displayButton = document.querySelector(".display-todos");
 
 const todoTitle = document.getElementById("title");
 const todoDescription = document.getElementById("description");
@@ -34,9 +40,12 @@ function addToLibrary(newTodoozy) {
 // button to add a todo
 function loadUI() {
   // const todoDisplay = document.querySelector(".todoozy-display");
-  const addBtn = document.querySelector(".add-todo-button");
 
   addBtn.addEventListener("click", (e) => {
+    if (todoTitle.value.trim() === "") {
+      console.log("Needs a title");
+      return;
+    }
     const todoozy = captureFields(e);
     addToLibrary(todoozy);
     updateDisplayDefault(e);
@@ -60,12 +69,12 @@ function clearDisplay() {
 
 function createTodoCard(todoozy) {
   const todoCard = document.createElement("div");
-  const title = document.createElement("h1");
-  const description = document.createElement("details");
+  const title = document.createElement("p");
+  const description = document.createElement("p");
   const dueDate = document.createElement("div");
-  const project = document.createElement("h4");
+  const project = document.createElement("p");
 
-  todoCard.classList.add("todoozy");
+  todoCard.classList.add("todo-card","todoozy");
   todoCard.id = `${todoozy.id}`;
   title.classList.add("todoozy-title");
   description.classList.add("todoozy-description");
@@ -97,22 +106,21 @@ function updateDisplayDefault(e) {
   // );
 }
 // TODO: make the "make todo" button display or hide the todofields
-const makeTodoButton = document.querySelector(".toggle-make-todo");
 
 function toggleTodoFields(e) {
   e.preventDefault();
-  if (todoForm.classList.contains("hide")) {
-    todoForm.classList.remove("hide");
+  if (makeTodoDisplay.classList.contains("hide")) {
+    makeTodoDisplay.classList.remove("hide");
+    makeTodoDisplay.classList.add("pop-out");
   } else {
-    todoForm.classList.add("hide");
+    makeTodoDisplay.classList.add("hide");
+    makeTodoDisplay.classList.remove("pop-out");
   }
 }
 // grab the dom stuff and add a listner
 makeTodoButton.addEventListener("click", (e) => toggleTodoFields(e));
 
 // make a test button to display the library
-const displayButton = document.querySelector(".display-todos");
 displayButton.addEventListener("click", (e) => updateDisplayDefault(e));
-
 
 export { loadUI, createTodoCard };

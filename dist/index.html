@@ -38,7 +38,7 @@
             <div class="todo-input">
               <label for="description" class="field-label">Description</label>
               <input
-                type="text"
+                type="textarea"
                 class="field-input"
                 id="description"
                 name="todoozy"
@@ -47,7 +47,7 @@
             <div class="todo-input due-date">
               <label for="due-date" class="field-label">Due Date</label>
               <input
-                type="date"
+                type="datetime-local"
                 class="field-input"
                 id="due-date"
                 name="todoozy"
@@ -70,6 +70,8 @@
                 id="completed"
                 name="todoozy"
               />
+            </div>
+            <div class="todo-input">
               <button class="add-todo-button">Add Todoozy</button>
             </div>
           </form>
