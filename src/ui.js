@@ -16,6 +16,11 @@ const todoDescription = document.getElementById("description");
 const todoDueDate = document.getElementById("due-date");
 const todoProject = document.getElementById("project");
 const todoCompleted = document.getElementById("completed");
+
+// test local storage with buttons
+const saveTodo = document.querySelector(".save-todos");
+const getTodo = document.querySelector(".get-todos");
+
 // function to store fields into a new todo object
 function captureFields(e) {
   e.preventDefault();
@@ -50,7 +55,12 @@ function loadUI() {
     addToLibrary(todoozy);
     updateDisplayDefault(e);
   });
-
+  // library.loadLocalStorage();
+  saveTodo.addEventListener("click", (e) => library.saveToLocalStorage(e));
+  getTodo.addEventListener("click", (e) => {
+    library.loadLocalStorage();
+    library.getLocalStorage(e);
+  });
   // addBtn.classList.add("make-todo-button");
   // addBtn.innerText = "Make Todoozy";
   // todoForm.appendChild(addBtn);
@@ -74,7 +84,7 @@ function createTodoCard(todoozy) {
   const dueDate = document.createElement("div");
   const project = document.createElement("p");
 
-  todoCard.classList.add("todo-card","todoozy");
+  todoCard.classList.add("todo-card", "todoozy");
   todoCard.id = `${todoozy.id}`;
   title.classList.add("todoozy-title");
   description.classList.add("todoozy-description");

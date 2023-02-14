@@ -2,9 +2,9 @@ import "./style.css";
 import { sampleTodoozy } from "./make-todo";
 import { loadUI } from "./ui";
 
-
-loadUI();
+console.log(sampleTodoozy.howMuchTime());
 
 console.log("Oh boy, this one's a todoozy!");
+loadUI();
 
-console.log(sampleTodoozy.howMuchTime());
+
