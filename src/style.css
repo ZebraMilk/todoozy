@@ -308,6 +308,10 @@ main {
   padding: 1em; 
 }
 
+.display-options {
+  margin-bottom: 1rem;
+}
+
 .app-content {
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -337,7 +341,6 @@ main {
   flex-direction: column;
   border: 1px solid var(--light);
   border-radius: .25rem;
-  margin-top: 1rem;
   padding: .5rem;
 }
 
@@ -384,6 +387,8 @@ input:focus {
 }
 
 .pop-out {
+  content: '';
   position: absolute;
-
+  
+  
 }
