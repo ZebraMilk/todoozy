@@ -1,7 +1,6 @@
-import "./style.css";
-import { sampleTodoozy } from "./make-todo";
-import { loadUI } from "./ui";
-
+import './style.css';
+import { sampleTodoozy } from './make-todo';
+import { loadUI } from './ui';
 
 loadUI();
 
